@@ -1,0 +1,66 @@
+<!-- 스티키 사이드바 -->
+<div id="stickySidebar" class="sticky-sidebar">
+<div class="sticky-sidebar-title">목차</div>
+<div id="stickyList" class="sticky-list">
+</div>
+</div>
+<script>
+const stickySidebar = document.getElementById('stickySidebar');
+const stickyList = document.getElementById('stickyList');
+const headings = document.querySelectorAll('.contents_style h2, .contents_style h3, .contents_style h4');
+
+if (headings.length === 0) {
+  stickySidebar.style.display = "none";
+} else {
+  stickySidebar.style.display = "block";
+}
+
+headings.forEach((heading, index) => {
+  const stickyItem = document.createElement('div');
+  const anchor = document.createElement('a');
+  const id = `heading-${index}`;
+
+  heading.id = id; 
+
+  anchor.textContent = heading.textContent;
+  anchor.href = `#${id}`;
+  anchor.classList.add('sticky-item-a');
+
+  if (heading.tagName === 'H2') {
+    anchor.classList.add('h2-sticky-item-a');
+    stickyItem.appendChild(anchor);
+    stickyItem.classList.add('h2-sticky-item');
+    stickyList.appendChild(stickyItem);
+  } else if (heading.tagName === 'H3') {
+    anchor.classList.add('h3-sticky-item-a');
+    stickyItem.appendChild(anchor);
+    stickyItem.classList.add('h3-sticky-item');
+    stickyList.appendChild(stickyItem);
+  } else if (heading.tagName === 'H4') {
+    anchor.classList.add('h4-sticky-item-a');
+    stickyItem.appendChild(anchor);
+    stickyItem.classList.add('h4-sticky-item');
+    stickyList.appendChild(stickyItem);
+  }
+
+});
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  stickySidebar.style.transform = `translateY(${scrollY}px)`;
+});
+
+function resizeStickSidebar () {
+  const width = window.innerWidth;
+  stickySidebar.style.width = ((width - 940) / 2) + 'px';
+  if (((width - 940) / 2) > 300) {
+    stickySidebar.style.right = ((((width - 940) / 2)-300)/2) + 'px';
+  } else {
+    stickySidebar.style.right = '20px';
+  }
+}
+
+resizeStickSidebar();
+window.addEventListener('resize', resizeStickSidebar);
+</script>
+<!-- // 스티키 사이드바 -->
