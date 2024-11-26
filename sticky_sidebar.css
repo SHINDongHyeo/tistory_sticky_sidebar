@@ -1,0 +1,58 @@
+/* 스티키 사이드바 */
+@media (min-width: 1200px) {
+  .sticky-sidebar {
+    position: absolute;
+    z-index: 100;
+    max-width: 300px;
+    top: 50px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border:none;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    box-shadow: 2px 2px 5px 3px rgb(0, 0, 0, 0.1)
+  }
+
+  .sticky-sidebar-title {
+   text-align: center;
+   margin-bottom: 10px;
+   color: rgb(0, 140, 255);
+   font-size: large;
+   font-weight: bold;  
+  }
+  .sticky-item-a {
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+  }
+  .sticky-item-a:hover {
+    background-color: rgb(0, 140, 255, 0.5);
+  }
+  .h2-sticky-item {
+    padding-left: 0px;
+  }
+  .h2-sticky-item-a {
+    font-weight: bold;
+  }
+  .h3-sticky-item {
+    padding-left: 0px;
+  }
+  .h3-sticky-item-a {
+    font-weight: normal;
+  }
+  .h4-sticky-item {
+    padding-left: 15px;
+  }
+  .h4-sticky-item::before {
+  content: "\f061";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  font-size: 12px;
+  }
+  .h4-sticky-item-a {
+    font-weight: normal;
+    font-size: small;
+  }
+}
